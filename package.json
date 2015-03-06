@@ -1,0 +1,16 @@
+{
+  "name": "my_chat_app",
+  "version": "1.0.0",
+  "dependencies": {
+    "socket.io": "1.0.x",
+    "mime": "~1.2.7",
+    "node-static": "^0.7.4"
+  },
+  "description": "A node chat app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
