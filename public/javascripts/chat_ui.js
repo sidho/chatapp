@@ -30,7 +30,10 @@
   };
 
   ChatUI.prototype.formatMessage = function(message) {
-    var template = $('<li>').text(message.text);
+    console.log(message);
+    var formattedMessage = message.nickname + " : " + message.text;
+
+    var template = $('<li>').text(formattedMessage);
     return template;
   }
 
