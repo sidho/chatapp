@@ -2,8 +2,27 @@
   <head>
     <title>Sema4 Chat</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src='/socket.io/socket.io.js' type='text/javascript'></script>
+    <script src='/javascripts/chat.js' type='text/javascript'></script>
+    <script src='/javascripts/chat_ui.js' type='text/javascript'></script>
+    <script type="text/javascript" charset="utf-8">
+      var socket = io();
+
+      $(function () {
+        var chat = new App.Chat(socket);
+        chatUI = new App.ChatUI(chat);
+      });
+    </script>
   </head>
   <body>
+    Sema4 Chat App!
+
+    <ul id="messages"></ul>
+
+    <form class="chat-form">
+      <input type="text" id="message-input">
+      <button id="send-button">submit</button>
+    </form>
 
   </body>
 </html>
