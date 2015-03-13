@@ -23,6 +23,11 @@
       }
     })
 
+    this.chat.socket.on('adminMessage', function(message) {
+      var result = $('<li>').text(message.text);
+      that.$messages.append(result);
+    })
+
     this.chat.socket.on('nicknameChangeResult', function(result) {
       var result = $('<li>').text(result.message);
       that.$messages.append(result);
