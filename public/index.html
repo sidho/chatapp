@@ -5,6 +5,9 @@
     <script src='/socket.io/socket.io.js' type='text/javascript'></script>
     <script src='/javascripts/chat.js' type='text/javascript'></script>
     <script src='/javascripts/chat_ui.js' type='text/javascript'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/steez.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       var socket = io();
 
@@ -12,17 +15,37 @@
         var chat = new App.Chat(socket);
         var chatUI = new App.ChatUI(chat);
       });
+
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
     </script>
   </head>
   <body>
-    Sema4 Chat App!
-
-    <ul id="messages"></ul>
-
-    <form class="chat-form">
-      <input type="text" id="message-input">
-      <button id="send-button">submit</button>
-    </form>
+    <div class="container">
+    <div id="chat" class="col-md-6 col-sm-8 col-xs-12">
+      <ul class="well" id="messages"></ul>
+      <form class="chat-form">
+        <div class="input-group">
+          <input type="text" class="form-control" id="message-input" placeholder="Type your message here...">
+          <span class="input-group-btn">
+            <button type="button"
+                    class="btn btn-default"
+                    data-container="body"
+                    data-toggle="popover"
+                    data-placement="top"
+                    title="Help"
+                    data-content="Use /name to change name.
+                                  Use /room to change room.
+                                  Example: /name neo">
+              <span class="glyphicon glyphicon-question-sign"></span>
+            </button>
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+          </span>
+        </div>
+      </form>
+    </div>
+    </div>
 
   </body>
 </html>

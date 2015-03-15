@@ -1,0 +1,13 @@
+li {
+  list-style-type: none;
+}
+
+#chat {
+  width: 400px;
+  padding-top: 50px;
+}
+
+#messages {
+  width: 400px;
+  height: 400px;
+}

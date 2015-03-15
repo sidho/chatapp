@@ -1,0 +1,153 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'bootstrap' ]
+2 info using npm@2.5.1
+3 info using node@v0.10.33
+4 warn package.json my_chat_app@1.0.0 No repository field.
+5 warn package.json my_chat_app@1.0.0 No README data
+6 silly cache add args [ 'bootstrap', null ]
+7 verbose cache add spec bootstrap
+8 silly cache add parsed spec { raw: 'bootstrap',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'bootstrap',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 verbose addNamed bootstrap@*
+10 silly addNamed semver.valid null
+11 silly addNamed semver.validRange *
+12 silly addNameRange { name: 'bootstrap', range: '*', hasData: false }
+13 silly mapToRegistry name bootstrap
+14 silly mapToRegistry using default registry
+15 silly mapToRegistry registry https://registry.npmjs.org/
+16 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+17 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/bootstrap
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 20:16:27
+21 verbose request id 16888bf654fbc973
+22 verbose etag "32QAXYK8AWL6JS3LQFWCYPYA9"
+23 http request GET https://registry.npmjs.org/bootstrap
+24 http 304 https://registry.npmjs.org/bootstrap
+25 silly get cb [ 304,
+25 silly get   { date: 'Sun, 15 Mar 2015 03:16:27 GMT',
+25 silly get     server: 'Apache',
+25 silly get     via: '1.1 varnish',
+25 silly get     'last-modified': 'Sun, 15 Mar 2015 03:16:27 GMT',
+25 silly get     'cache-control': 'max-age=60',
+25 silly get     etag: '"32QAXYK8AWL6JS3LQFWCYPYA9"',
+25 silly get     age: '0',
+25 silly get     'x-served-by': 'cache-lax1425-LAX',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1426389387.246873,VS0,VE72',
+25 silly get     vary: 'Accept',
+25 silly get     'content-length': '0',
+25 silly get     'keep-alive': 'timeout=10, max=50',
+25 silly get     connection: 'Keep-Alive' } ]
+26 verbose etag https://registry.npmjs.org/bootstrap from cache
+27 verbose get saving bootstrap to /Users/sidho/.npm/registry.npmjs.org/bootstrap/.cache.json
+28 silly addNameRange number 2 { name: 'bootstrap', range: '*', hasData: true }
+29 silly addNameRange versions [ 'bootstrap',
+29 silly addNameRange   [ '0.0.1', '0.0.2', '3.1.1', '3.2.0', '3.3.0', '3.3.1', '3.3.2' ] ]
+30 verbose addNamed bootstrap@3.3.2
+31 silly addNamed semver.valid 3.3.2
+32 silly addNamed semver.validRange 3.3.2
+33 silly cache afterAdd bootstrap@3.3.2
+34 verbose afterAdd /Users/sidho/.npm/bootstrap/3.3.2/package/package.json not in flight; writing
+35 verbose afterAdd /Users/sidho/.npm/bootstrap/3.3.2/package/package.json written
+36 silly install resolved [ { name: 'bootstrap',
+36 silly install resolved     description: 'The most popular front-end framework for developing responsive, mobile first projects on the web.',
+36 silly install resolved     version: '3.3.2',
+36 silly install resolved     keywords:
+36 silly install resolved      [ 'css',
+36 silly install resolved        'less',
+36 silly install resolved        'mobile-first',
+36 silly install resolved        'responsive',
+36 silly install resolved        'front-end',
+36 silly install resolved        'framework',
+36 silly install resolved        'web' ],
+36 silly install resolved     homepage: 'http://getbootstrap.com',
+36 silly install resolved     author: { name: 'Twitter, Inc.' },
+36 silly install resolved     scripts: { test: 'grunt test' },
+36 silly install resolved     style: 'dist/css/bootstrap.css',
+36 silly install resolved     less: 'less/bootstrap.less',
+36 silly install resolved     main: './dist/js/npm',
+36 silly install resolved     repository: { type: 'git', url: 'https://github.com/twbs/bootstrap.git' },
+36 silly install resolved     bugs: { url: 'https://github.com/twbs/bootstrap/issues' },
+36 silly install resolved     license:
+36 silly install resolved      { type: 'MIT',
+36 silly install resolved        url: 'https://github.com/twbs/bootstrap/blob/master/LICENSE' },
+36 silly install resolved     devDependencies:
+36 silly install resolved      { btoa: '~1.1.2',
+36 silly install resolved        glob: '~4.3.5',
+36 silly install resolved        grunt: '~0.4.5',
+36 silly install resolved        'grunt-autoprefixer': '~2.1.0',
+36 silly install resolved        'grunt-banner': '~0.3.1',
+36 silly install resolved        'grunt-contrib-clean': '~0.6.0',
+36 silly install resolved        'grunt-contrib-compress': '~0.13.0',
+36 silly install resolved        'grunt-contrib-concat': '~0.5.0',
+36 silly install resolved        'grunt-contrib-connect': '~0.9.0',
+36 silly install resolved        'grunt-contrib-copy': '~0.7.0',
+36 silly install resolved        'grunt-contrib-csslint': '~0.3.1',
+36 silly install resolved        'grunt-contrib-cssmin': '~0.11.0',
+36 silly install resolved        'grunt-contrib-jade': '~0.14.0',
+36 silly install resolved        'grunt-contrib-jshint': '~0.10.0',
+36 silly install resolved        'grunt-contrib-less': '~1.0.0',
+36 silly install resolved        'grunt-contrib-qunit': '~0.5.2',
+36 silly install resolved        'grunt-contrib-uglify': '~0.7.0',
+36 silly install resolved        'grunt-contrib-watch': '~0.6.1',
+36 silly install resolved        'grunt-csscomb': '~3.0.0',
+36 silly install resolved        'grunt-exec': '~0.4.6',
+36 silly install resolved        'grunt-html-validation': '~0.1.18',
+36 silly install resolved        'grunt-jekyll': '~0.4.2',
+36 silly install resolved        'grunt-jscs': '~1.2.0',
+36 silly install resolved        'grunt-saucelabs': '~8.4.1',
+36 silly install resolved        'grunt-sed': '~0.1.1',
+36 silly install resolved        'load-grunt-tasks': '~2.0.0',
+36 silly install resolved        'npm-shrinkwrap': '^200.0.0',
+36 silly install resolved        remarkable: '~1.6.0',
+36 silly install resolved        'time-grunt': '~1.0.0' },
+36 silly install resolved     engines: { node: '~0.10.1' },
+36 silly install resolved     jspm:
+36 silly install resolved      { main: 'js/bootstrap',
+36 silly install resolved        directories: [Object],
+36 silly install resolved        shim: [Object],
+36 silly install resolved        buildConfig: [Object] },
+36 silly install resolved     gitHead: 'bcf7dd38b5ab180256e2e4fb5da0369551b3f082',
+36 silly install resolved     _id: 'bootstrap@3.3.2',
+36 silly install resolved     _shasum: '43b0283dfb2ac83b12cd3dc1f4238f5042ed02cc',
+36 silly install resolved     _from: 'bootstrap@*',
+36 silly install resolved     _npmVersion: '1.4.28',
+36 silly install resolved     _npmUser: { name: 'twbs', email: 'getbootstrap@gmail.com' },
+36 silly install resolved     maintainers: [ [Object] ],
+36 silly install resolved     dist:
+36 silly install resolved      { shasum: '43b0283dfb2ac83b12cd3dc1f4238f5042ed02cc',
+36 silly install resolved        tarball: 'http://registry.npmjs.org/bootstrap/-/bootstrap-3.3.2.tgz' },
+36 silly install resolved     directories: {},
+36 silly install resolved     _resolved: 'https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.2.tgz',
+36 silly install resolved     readme: 'ERROR: No README data found!' } ]
+37 info install bootstrap@3.3.2 into /Users/sidho/Downloads/my_chat_app
+38 info installOne bootstrap@3.3.2
+39 verbose installOne of bootstrap to /Users/sidho/Downloads/my_chat_app not in flight; installing
+40 warn locking Error: EACCES, open '/Users/sidho/.npm/_locks/bootstrap-6076a061c082587f.lock'
+40 warn locking  /Users/sidho/.npm/_locks/bootstrap-6076a061c082587f.lock failed { [Error: EACCES, open '/Users/sidho/.npm/_locks/bootstrap-6076a061c082587f.lock']
+40 warn locking   errno: 3,
+40 warn locking   code: 'EACCES',
+40 warn locking   path: '/Users/sidho/.npm/_locks/bootstrap-6076a061c082587f.lock' }
+41 verbose stack Error: Attempt to unlock /Users/sidho/Downloads/my_chat_app/node_modules/bootstrap, which hasn't been locked
+41 verbose stack     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:66:11)
+41 verbose stack     at cb (/usr/local/lib/node_modules/npm/lib/install.js:929:5)
+41 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:933:20
+41 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:40:9
+41 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+41 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+41 verbose stack     at Object.oncomplete (fs.js:107:15)
+42 verbose cwd /Users/sidho/Downloads/my_chat_app
+43 error Darwin 14.0.0
+44 error argv "node" "/usr/local/bin/npm" "install" "bootstrap"
+45 error node v0.10.33
+46 error npm  v2.5.1
+47 error Attempt to unlock /Users/sidho/Downloads/my_chat_app/node_modules/bootstrap, which hasn't been locked
+48 error If you need help, you may report this error at:
+48 error     <http://github.com/npm/npm/issues>
+49 verbose exit [ 1, true ]
