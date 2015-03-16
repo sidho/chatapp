@@ -65,9 +65,8 @@
   }
 
   ChatUI.prototype.scrollDown = function () {
-    console.log('scroll');
     var height = this.$messages[0].scrollHeight;
-    this.$messages.scrollTop(height);
+    this.$messages.animate({"scrollTop": height}, 'slow');
   }
 
 })();
