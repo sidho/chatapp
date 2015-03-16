@@ -4,13 +4,7 @@ li {
 }
 
 #chat {
-  width: 400px;
   padding-top: 50px;
-}
-
-.messages-container {
-  max-width: 400px;
-  max-height: 400px;
 }
 
 #messages {
