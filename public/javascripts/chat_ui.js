@@ -49,6 +49,7 @@
 
     var template = $('<li>').text(formattedMessage);
     template.addClass('panel');
+    template.smilify();
     return template;
   }
 
