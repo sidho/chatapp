@@ -28,30 +28,29 @@
     </script>
   </head>
   <body>
-    <div class="container">
-    <div id="chat" class="col-md-6 col-sm-8 col-xs-12">
-      <div class="well messages-container">
-        <ul id="messages"></ul>
-      </div>
-      <form class="chat-form">
-        <div class="input-group">
-          <input type="text" class="form-control" id="message-input" placeholder="Type your message here...">
-          <span class="input-group-btn">
-            <button type="button"
-                    class="btn btn-default"
-                    data-container="body"
-                    data-toggle="popover"
-                    data-placement="top"
-                    title="Help"
-                    data-content="Type '/name <--name-->' to change name. Use '/room <--room-->' to change room.">
-              <span class="glyphicon glyphicon-question-sign"></span>
-            </button>
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-          </span>
+    <div class="container row-fluid">
+      <div id="chat" class="col-md-8 col-sm-12 col-xs-12">
+        <div class="well messages-container">
+          <ul id="messages"></ul>
         </div>
-      </form>
+        <form class="chat-form">
+          <div class="input-group">
+            <input type="text" class="form-control" id="message-input" placeholder="Type your message here...">
+            <span class="input-group-btn">
+              <button type="button"
+                      class="btn btn-default"
+                      data-container="body"
+                      data-toggle="popover"
+                      data-placement="top"
+                      title="Help"
+                      data-content="Type '/name <--name-->' to change name. Use '/room <--room-->' to change room.">
+                <span class="glyphicon glyphicon-question-sign"></span>
+              </button>
+              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
-    </div>
-
   </body>
 </html>
