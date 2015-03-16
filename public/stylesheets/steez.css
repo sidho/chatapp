@@ -7,7 +7,14 @@ li {
   padding-top: 50px;
 }
 
-#messages {
-  width: 400px;
-  height: 400px;
+.messages-container {
+  max-width: 400px;
+  max-height: 400px;
 }
+
+#messages {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+/* TODO: Fix chat scrolling */

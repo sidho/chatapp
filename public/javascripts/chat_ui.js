@@ -20,17 +20,20 @@
       var formattedMessage = that.formatMessage(message);
       if (formattedMessage.html() !== "") {
         that.$messages.append(formattedMessage);
+        that.scrollDown();
       }
     })
 
     this.chat.socket.on('adminMessage', function(message) {
       var result = $('<li>').text(message.text);
       that.$messages.append(result);
+      that.scrollDown();
     })
 
     this.chat.socket.on('nicknameChangeResult', function(result) {
       var result = $('<li>').text(result.message);
       that.$messages.append(result);
+      that.scrollDown();
     })
 
     this.$chatForm.on('submit', function(event){
@@ -56,6 +59,11 @@
     }
 
     this.$messageInput.val('');
+  }
+
+  ChatUI.prototype.scrollDown = function () {
+    var height = this.$messages[0].scrollHeight;
+    this.$messages.scrollTop(height);
   }
 
 })();

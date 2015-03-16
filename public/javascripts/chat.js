@@ -16,6 +16,9 @@
     } else {
       this.socket.emit('message', { text: "Invalid command."})
     }
+
+    // TODO: Don't emit if there isn't a param that comes in
+    // with the command
   }
 
   Chat.prototype.sendMessage = function (text) {
