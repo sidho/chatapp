@@ -14,38 +14,41 @@
   }
 
   ChatUI.prototype.bindHandlers = function() {
-    var that = this;
-
     this.chat.socket.on('message', function(message) {
-      var formattedMessage = that.formatMessage(message);
+      var formattedMessage = this.formatMessage(message);
       if (formattedMessage.html() !== "") {
-        that.$messages.append(formattedMessage);
-        that.scrollDown();
+        this.$messages.append(formattedMessage);
+        this.scrollDown();
       }
-    })
+    }.bind(this));
 
     this.chat.socket.on('adminMessage', function(message) {
-      var result = $('<li>').text(message.text);
-      that.$messages.append(result);
-      that.scrollDown();
-    })
+      var formattedMessage = this.formatMessage(message);
+      this.$messages.append(formattedMessage);
+      this.scrollDown();
+    }.bind(this));
 
-    this.chat.socket.on('nicknameChangeResult', function(result) {
-      var result = $('<li>').text(result.message);
-      that.$messages.append(result);
-      that.scrollDown();
-    })
+    this.chat.socket.on('nicknameChangeResult', function(message) {
+      var formattedMessage = this.formatMessage(message);
+      this.$messages.append(formattedMessage);
+      this.scrollDown();
+    }.bind(this));
 
     this.$chatForm.on('submit', function(event){
       event.preventDefault();
-      that.handleSubmit();
-    })
+      this.handleSubmit();
+    }.bind(this));
   };
 
   ChatUI.prototype.formatMessage = function(message) {
-    var formattedMessage = message.nickname + " : " + message.text;
+    if (message.nickname) {
+      var formattedMessage = message.nickname + " : " + message.text
+    } else {
+      var formattedMessage = message.text
+    }
 
     var template = $('<li>').text(formattedMessage);
+    template.addClass('panel');
     return template;
   }
 
@@ -62,6 +65,7 @@
   }
 
   ChatUI.prototype.scrollDown = function () {
+    console.log('scroll');
     var height = this.$messages[0].scrollHeight;
     this.$messages.scrollTop(height);
   }
