@@ -74,7 +74,7 @@
     }
 
     var template = $('<li>').text(formattedMessage);
-    template.addClass('panel');
+    template.addClass('panel message');
     template.smilify();
     return template;
   }

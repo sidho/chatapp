@@ -4,7 +4,6 @@ li {
 }
 
 #chat {
-  /*padding-top: 50px;*/
   height: 100%;
   margin-top: 10px;
 }
@@ -14,7 +13,11 @@ li {
 }
 
 .chat-form {
-  height: 20%;
+  margin: 0;
+}
+
+.message {
+  overflow: hidden;
 }
 
 #messages {
