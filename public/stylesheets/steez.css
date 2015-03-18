@@ -24,6 +24,11 @@ li {
   overflow: auto;
 }
 
+#room-list{
+  height: 80%;
+  overflow: auto;
+}
+
 #sidebar {
   margin-top: 10px;
 }
