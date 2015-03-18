@@ -9,16 +9,19 @@
 
   Chat.prototype.handleCommand = function (command) {
     var commandParams = command.split(' ');
-    if (commandParams[0] === "/name") {
-      this.socket.emit('nicknameChangeRequest', commandParams[1]);
-    } else if (commandParams[0] === "/join") {
-      this.socket.emit('roomChangeRequest', commandParams[1]);
+    if (commandParams.length > 1) {
+      if (commandParams[0] === "/name") {
+        this.socket.emit('nicknameChangeRequest', commandParams[1]);
+      } else if (commandParams[0] === "/join") {
+        this.socket.emit('roomChangeRequest', commandParams[1]);
+      } else {
+        this.socket.emit('adminMessage', { text: "Invalid command."})
+      }
     } else {
-      this.socket.emit('adminMessage', { text: "Invalid command."})
+      this.socket.emit('adminMessage', {
+        text: "A name or room is required after the command. Example '/room BaseballFans'"
+      })
     }
-
-    // TODO: Don't emit if there isn't a param that comes in
-    // with the command
   }
 
   Chat.prototype.sendMessage = function (text) {
