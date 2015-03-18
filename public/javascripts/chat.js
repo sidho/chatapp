@@ -14,7 +14,7 @@
     } else if (commandParams[0] === "/join") {
       this.socket.emit('roomChangeRequest', commandParams[1]);
     } else {
-      this.socket.emit('message', { text: "Invalid command."})
+      this.socket.emit('adminMessage', { text: "Invalid command."})
     }
 
     // TODO: Don't emit if there isn't a param that comes in

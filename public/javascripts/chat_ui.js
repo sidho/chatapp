@@ -24,10 +24,10 @@
     }.bind(this));
 
     this.chat.socket.on('adminMessage', function(message) {
+      console.log(message);
       var formattedMessage = this.formatMessage(message);
       this.$messages.append(formattedMessage);
       this.scrollDown();
-
     }.bind(this));
 
     this.chat.socket.on('nicknameChangeResult', function(message) {
