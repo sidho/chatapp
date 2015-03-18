@@ -2,7 +2,7 @@
   "name": "my_chat_app",
   "version": "1.0.0",
   "dependencies": {
-    "socket.io": "1.0.x",
+    "socket.io": "1.2.x",
     "mime": "~1.2.7",
     "node-static": "^0.7.4"
   },
