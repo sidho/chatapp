@@ -41,7 +41,6 @@
     }.bind(this));
 
     this.chat.socket.on('roomList', function(roomInfo) {
-      console.log(roomInfo);
       this.populateRoomList(roomInfo);
     }.bind(this));
   };
@@ -67,11 +66,16 @@
 
   ChatUI.prototype.formatMessage = function(message) {
     if (message.nickname) {
-      var formattedMessage = message.nickname + " : " + message.text;
+      var name = $('<h5>').text(message.nickname);
+      var message = $('<div>').text(message.text);
+      name.addClass('name');
+      var formattedMessage = $('<div>');
+      formattedMessage.append(name);
+      formattedMessage.append(message);
     } else {
-      var formattedMessage = message.text;
+      var formattedMessage = $('<div>').text(message.text);
     }
-    var template = $('<li>').text(formattedMessage);
+    var template = $('<li>').append(formattedMessage);
     template.addClass('panel message');
     template.smilify();
     return template;
