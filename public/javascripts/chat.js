@@ -14,6 +14,14 @@
         this.socket.emit('nicknameChangeRequest', commandParams[1]);
       } else if (commandParams[0] === "/join") {
         this.socket.emit('roomChangeRequest', commandParams[1]);
+      } else if (commandParams[0] === "/w") {
+        if (commandParams.length > 2) {
+          this.socket.emit('whisper', commandParams);
+        } else {
+          this.socket.emit('adminMessage', {
+            text: "You need a message. Example '/w Sid hello sid!'"
+          });
+        }
       } else {
         this.socket.emit('adminMessage', { text: "Invalid command."});
       }

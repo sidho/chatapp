@@ -23,6 +23,22 @@
       }
     }.bind(this));
 
+    this.chat.socket.on('whisperReceive', function(message) {
+      var whisper = message.sender + " whispers: " + message.body;
+      var formattedMessage = $('<li>').text(whisper);
+      formattedMessage.addClass('panel');
+      this.$messages.append(formattedMessage);
+      this.scrollDown();
+    }.bind(this));
+
+    this.chat.socket.on('whisperSend', function(message) {
+      var whisper = "you whisper to " + message.receiver + " : " + message.body;
+      var formattedMessage = $('<li>').text(whisper);
+      formattedMessage.addClass('panel');
+      this.$messages.append(formattedMessage);
+      this.scrollDown();
+    }.bind(this));
+
     this.chat.socket.on('adminMessage', function(message) {
       var formattedMessage = this.formatMessage(message);
       this.$messages.append(formattedMessage);
