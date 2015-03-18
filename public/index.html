@@ -29,7 +29,7 @@
   </head>
   <body>
     <div class="container row-fluid">
-      <div id="chat" class="col-md-8 col-sm-12 col-xs-12">
+      <div id="chat" class="col-xs-12 col-md-8">
         <div class="well messages-container">
           <ul id="messages"></ul>
         </div>
@@ -43,13 +43,21 @@
                       data-toggle="popover"
                       data-placement="top"
                       title="Help"
-                      data-content="Type '/name <--name-->' to change name. Use '/room <--room-->' to change room.">
+                      data-content="Type '/name' and a name to change the name. Use '/join' and a room to change room.">
                 <span class="glyphicon glyphicon-question-sign"></span>
               </button>
               <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
             </span>
           </div>
         </form>
+      </div>
+      <div id="sidebar" class="col-xs-12 col-md-4">
+        <div id="room-list" class="well col-xs-12">
+          hi
+        </div>
+        <div id="global-list" class="well col-xs-12">
+          hi
+        </div>
       </div>
     </div>
   </body>

@@ -9,6 +9,7 @@
     this.$sendButton = $('#send-button');
     this.$chatForm = $('.chat-form');
     this.$messageInput = $('#message-input');
+    this.$roomList = $('#room-list');
 
     this.bindHandlers();
   }
@@ -26,6 +27,7 @@
       var formattedMessage = this.formatMessage(message);
       this.$messages.append(formattedMessage);
       this.scrollDown();
+
     }.bind(this));
 
     this.chat.socket.on('nicknameChangeResult', function(message) {
@@ -38,6 +40,25 @@
       event.preventDefault();
       this.handleSubmit();
     }.bind(this));
+
+    this.chat.socket.on('roomList', function(roomInfo) {
+      console.log(roomInfo);
+      this.populateRoomList(roomInfo);
+    }.bind(this));
+  };
+
+  ChatUI.prototype.populateRoomList = function (roomInfo) {
+    this.$roomList.empty();
+    for(var room in roomInfo) {
+      var roomList = $('<div>');
+      var roomTitle = $('<div>').text(room);
+      roomList.append(roomTitle);
+      roomInfo[room].forEach(function (userName) {
+        var user = $('<div>').text(userName);
+        roomList.append(user);
+      })
+      this.$roomList.append(roomList);
+    }
   };
 
   ChatUI.prototype.formatMessage = function(message) {
