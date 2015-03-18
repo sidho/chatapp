@@ -15,17 +15,16 @@
       } else if (commandParams[0] === "/join") {
         this.socket.emit('roomChangeRequest', commandParams[1]);
       } else {
-        this.socket.emit('adminMessage', { text: "Invalid command."})
+        this.socket.emit('adminMessage', { text: "Invalid command."});
       }
     } else {
       this.socket.emit('adminMessage', {
         text: "A name or room is required after the command. Example '/room BaseballFans'"
-      })
+      });
     }
-  }
+  };
 
   Chat.prototype.sendMessage = function (text) {
-    this.socket.emit('message', { text: text })
-  }
-
+    this.socket.emit('message', { text: text });
+  };
 })();

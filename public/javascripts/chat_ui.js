@@ -12,7 +12,7 @@
     this.$roomList = $('#room-list');
 
     this.bindHandlers();
-  }
+  };
 
   ChatUI.prototype.bindHandlers = function() {
     this.chat.socket.on('message', function(message) {
@@ -24,7 +24,6 @@
     }.bind(this));
 
     this.chat.socket.on('adminMessage', function(message) {
-      console.log(message);
       var formattedMessage = this.formatMessage(message);
       this.$messages.append(formattedMessage);
       this.scrollDown();
@@ -68,16 +67,15 @@
 
   ChatUI.prototype.formatMessage = function(message) {
     if (message.nickname) {
-      var formattedMessage = message.nickname + " : " + message.text
+      var formattedMessage = message.nickname + " : " + message.text;
     } else {
-      var formattedMessage = message.text
+      var formattedMessage = message.text;
     }
-
     var template = $('<li>').text(formattedMessage);
     template.addClass('panel message');
     template.smilify();
     return template;
-  }
+  };
 
   ChatUI.prototype.handleSubmit = function() {
     var message = this.$messageInput.val();
@@ -89,11 +87,10 @@
     }
 
     this.$messageInput.val('');
-  }
+  };
 
   ChatUI.prototype.scrollDown = function () {
     var height = this.$messages[0].scrollHeight;
     this.$messages.animate({"scrollTop": height}, 'slow');
-  }
-
+  };
 })();
