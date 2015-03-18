@@ -51,12 +51,17 @@
     this.$roomList.empty();
     for(var room in roomInfo) {
       var roomList = $('<div>');
+      var roomClients = $('<div>');
       var roomTitle = $('<div>').text(room);
       roomList.append(roomTitle);
+      roomList.addClass('panel panel-default');
+      roomTitle.addClass('panel-heading');
+      roomClients.addClass('panel-body');
       roomInfo[room].forEach(function (userName) {
         var user = $('<div>').text(userName);
-        roomList.append(user);
+        roomClients.append(user);
       })
+      roomList.append(roomClients);
       this.$roomList.append(roomList);
     }
   };
