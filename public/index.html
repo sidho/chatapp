@@ -37,6 +37,18 @@
       </div>
     </script>
 
+    <script id="whisper-send-template" type="text/template">
+      <div class="panel message-group">
+        <div class="message-body whisper">You whisper to <%= _.escape(receiver) %> : <%= _.escape(body) %></div>
+      </div>
+    </script>
+
+    <script id="whisper-receive-template" type="text/template">
+      <div class="panel message-group">
+        <div class="message-body whisper"><%= _.escape(sender) %> whispers : <%= _.escape(body) %></div>
+      </div>
+    </script>
+
   </head>
   <body>
     <div class="container row-fluid">

@@ -12,6 +12,8 @@
     this.$roomList = $('#room-list');
     this.messageTemplate = _.template($('#message-template').html());
     this.adminMessageTemplate = _.template($('#admin-message-template').html());
+    this.whisperSendTemplate = _.template($('#whisper-send-template').html());
+    this.whisperReceiveTemplate = _.template($('#whisper-receive-template').html());
 
     this.bindHandlers();
   };
@@ -23,19 +25,15 @@
       this.scrollDown();
     }.bind(this));
 
-    this.chat.socket.on('whisperReceive', function(message) {
-      var whisper = message.sender + " whispers: " + message.body;
-      var formattedMessage = $('<li>').text(whisper);
-      formattedMessage.addClass('panel');
-      this.$messages.append(formattedMessage);
+    this.chat.socket.on('whisperSend', function(message) {
+      var templatedMessage = this.whisperSendTemplate(message);
+      this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 
-    this.chat.socket.on('whisperSend', function(message) {
-      var whisper = "you whisper to " + message.receiver + " : " + message.body;
-      var formattedMessage = $('<li>').text(whisper);
-      formattedMessage.addClass('panel');
-      this.$messages.append(formattedMessage);
+    this.chat.socket.on('whisperReceive', function(message) {
+      var templatedMessage = this.whisperReceiveTemplate(message);
+      this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 
