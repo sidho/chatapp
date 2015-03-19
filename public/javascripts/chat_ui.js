@@ -22,6 +22,7 @@
   ChatUI.prototype.bindHandlers = function() {
     this.chat.socket.on('message', function(message) {
       var templatedMessage = this.messageTemplate(message);
+      // Need to convert to jquery object before smilifying
       this.$messages.append($(templatedMessage).smilify());
       this.scrollDown();
     }.bind(this));
@@ -62,7 +63,10 @@
 
   ChatUI.prototype.populateRoomList = function (roomInfo) {
     this.$roomList.empty();
+
+    // Templates require data to be inside of an object
     var data = {rooms: roomInfo};
+
     var templatedRoomList = this.roomListTemplate(data);
     this.$roomList.append(templatedRoomList);
   };
