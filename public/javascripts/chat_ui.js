@@ -10,17 +10,17 @@
     this.$chatForm = $('.chat-form');
     this.$messageInput = $('#message-input');
     this.$roomList = $('#room-list');
+    this.messageTemplate = _.template($('#message-template').html());
+    this.adminMessageTemplate = _.template($('#admin-message-template').html());
 
     this.bindHandlers();
   };
 
   ChatUI.prototype.bindHandlers = function() {
     this.chat.socket.on('message', function(message) {
-      var formattedMessage = this.formatMessage(message);
-      if (formattedMessage.html() !== "") {
-        this.$messages.append(formattedMessage);
-        this.scrollDown();
-      }
+      var templatedMessage = this.messageTemplate(message);
+      this.$messages.append(templatedMessage);
+      this.scrollDown();
     }.bind(this));
 
     this.chat.socket.on('whisperReceive', function(message) {
@@ -40,8 +40,8 @@
     }.bind(this));
 
     this.chat.socket.on('adminMessage', function(message) {
-      var formattedMessage = this.formatMessage(message);
-      this.$messages.append(formattedMessage);
+      var templatedMessage = this.adminMessageTemplate(message);
+      this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 

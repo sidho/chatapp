@@ -23,6 +23,20 @@
         $('[data-toggle="popover"]').popover()
       })
     </script>
+
+    <script id="message-template" type="text/template">
+      <div class="panel message-group">
+        <div class="sender"><%= _.escape(nickname) %></div>
+        <div class="message-body"><%= _.escape(text) %></div>
+      </div>
+    </script>
+
+    <script id="admin-message-template" type="text/template">
+      <div class="panel message-group">
+        <div class="message-body"><%= _.escape(text) %></div>
+      </div>
+    </script>
+
   </head>
   <body>
     <div class="container row-fluid">
