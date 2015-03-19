@@ -49,6 +49,19 @@
       </div>
     </script>
 
+    <script id="room-list-template" type="text/template">
+      <% for (var room in rooms) { %>
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= room %></div>
+          <div class="panel-body">
+            <% rooms[room].forEach(function (userName) { %>
+              <div class="user-item"><%= userName %></div>
+            <% }) %>
+          </div>
+        </div>
+      <% } %>
+    </script>
+
   </head>
   <body>
     <div class="container row-fluid">

@@ -14,6 +14,7 @@
     this.adminMessageTemplate = _.template($('#admin-message-template').html());
     this.whisperSendTemplate = _.template($('#whisper-send-template').html());
     this.whisperReceiveTemplate = _.template($('#whisper-receive-template').html());
+    this.roomListTemplate = _.template($('#room-list-template').html());
     this.$messages.smilify();
     this.bindHandlers();
   };
@@ -61,21 +62,9 @@
 
   ChatUI.prototype.populateRoomList = function (roomInfo) {
     this.$roomList.empty();
-    for(var room in roomInfo) {
-      var roomList = $('<div>');
-      var roomClients = $('<div>');
-      var roomTitle = $('<div>').text(room);
-      roomList.append(roomTitle);
-      roomList.addClass('panel panel-default');
-      roomTitle.addClass('panel-heading');
-      roomClients.addClass('panel-body');
-      roomInfo[room].forEach(function (userName) {
-        var user = $('<div>').text(userName);
-        roomClients.append(user);
-      })
-      roomList.append(roomClients);
-      this.$roomList.append(roomList);
-    }
+    var data = {rooms: roomInfo};
+    var templatedRoomList = this.roomListTemplate(data);
+    this.$roomList.append(templatedRoomList);
   };
 
   ChatUI.prototype.handleSubmit = function() {
