@@ -78,23 +78,6 @@
     }
   };
 
-  ChatUI.prototype.formatMessage = function(message) {
-    if (message.nickname) {
-      var name = $('<h5>').text(message.nickname);
-      var message = $('<div>').text(message.text);
-      name.addClass('name');
-      var formattedMessage = $('<div>');
-      formattedMessage.append(name);
-      formattedMessage.append(message);
-    } else {
-      var formattedMessage = $('<div>').text(message.text);
-    }
-    var template = $('<li>').append(formattedMessage);
-    template.addClass('panel message');
-    template.smilify();
-    return template;
-  };
-
   ChatUI.prototype.handleSubmit = function() {
     var message = this.$messageInput.val();
 
