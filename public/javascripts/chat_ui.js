@@ -21,18 +21,21 @@
   ChatUI.prototype.bindHandlers = function() {
     this.chat.socket.on('message', function(message) {
       var templatedMessage = this.messageTemplate(message);
+      templatedMessage.smilify();
       this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 
     this.chat.socket.on('whisperSend', function(message) {
       var templatedMessage = this.whisperSendTemplate(message);
+      templatedMessage.smilify();
       this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 
     this.chat.socket.on('whisperReceive', function(message) {
       var templatedMessage = this.whisperReceiveTemplate(message);
+      templatedMessage.smilify();
       this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
@@ -44,8 +47,8 @@
     }.bind(this));
 
     this.chat.socket.on('nicknameChangeResult', function(message) {
-      var formattedMessage = this.formatMessage(message);
-      this.$messages.append(formattedMessage);
+      var templatedMessage = this.adminMessageTemplate(message);
+      this.$messages.append(templatedMessage);
       this.scrollDown();
     }.bind(this));
 
