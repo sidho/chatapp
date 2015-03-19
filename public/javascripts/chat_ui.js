@@ -15,11 +15,19 @@
     this.whisperSendTemplate = _.template($('#whisper-send-template').html());
     this.whisperReceiveTemplate = _.template($('#whisper-receive-template').html());
     this.roomListTemplate = _.template($('#room-list-template').html());
-    this.$messages.smilify();
+
     this.bindHandlers();
   };
 
   ChatUI.prototype.bindHandlers = function() {
+    this.handleMessages();
+    this.handleNicknameChangeResult();
+    this.handleSubmit();
+    this.handleWhispers();
+    this.populateRoomList();
+  };
+
+  ChatUI.prototype.handleMessages = function () {
     this.chat.socket.on('message', function(message) {
       var templatedMessage = this.messageTemplate(message);
       // Need to convert to jquery object before smilifying
@@ -27,6 +35,37 @@
       this.scrollDown();
     }.bind(this));
 
+    this.chat.socket.on('adminMessage', function(message) {
+      var templatedMessage = this.adminMessageTemplate(message);
+      this.$messages.append(templatedMessage);
+      this.scrollDown();
+    }.bind(this));
+  };
+
+  ChatUI.prototype.handleNicknameChangeResult = function () {
+    this.chat.socket.on('nicknameChangeResult', function(message) {
+      var templatedMessage = this.adminMessageTemplate(message);
+      this.$messages.append(templatedMessage);
+      this.scrollDown();
+    }.bind(this));
+  };
+
+  ChatUI.prototype.handleSubmit = function () {
+    this.$chatForm.on('submit', function(event){
+      event.preventDefault();
+      var message = this.$messageInput.val();
+
+      if (message[0] === '/') {
+        this.chat.handleCommand(message);
+      } else {
+        this.chat.sendMessage(message);
+      }
+
+      this.$messageInput.val('');
+    }.bind(this));
+  };
+
+  ChatUI.prototype.handleWhispers = function () {
     this.chat.socket.on('whisperSend', function(message) {
       var templatedMessage = this.whisperSendTemplate(message);
       this.$messages.append($(templatedMessage).smilify());
@@ -38,49 +77,18 @@
       this.$messages.append($(templatedMessage).smilify());
       this.scrollDown();
     }.bind(this));
+  };
 
-    this.chat.socket.on('adminMessage', function(message) {
-      var templatedMessage = this.adminMessageTemplate(message);
-      this.$messages.append(templatedMessage);
-      this.scrollDown();
-    }.bind(this));
-
-    this.chat.socket.on('nicknameChangeResult', function(message) {
-      var templatedMessage = this.adminMessageTemplate(message);
-      this.$messages.append(templatedMessage);
-      this.scrollDown();
-    }.bind(this));
-
-    this.$chatForm.on('submit', function(event){
-      event.preventDefault();
-      this.handleSubmit();
-    }.bind(this));
-
+  ChatUI.prototype.populateRoomList = function () {
     this.chat.socket.on('roomList', function(roomInfo) {
-      this.populateRoomList(roomInfo);
+      this.$roomList.empty();
+
+      // Templates require data to be inside of an object
+      var data = {rooms: roomInfo};
+
+      var templatedRoomList = this.roomListTemplate(data);
+      this.$roomList.append(templatedRoomList);
     }.bind(this));
-  };
-
-  ChatUI.prototype.populateRoomList = function (roomInfo) {
-    this.$roomList.empty();
-
-    // Templates require data to be inside of an object
-    var data = {rooms: roomInfo};
-
-    var templatedRoomList = this.roomListTemplate(data);
-    this.$roomList.append(templatedRoomList);
-  };
-
-  ChatUI.prototype.handleSubmit = function() {
-    var message = this.$messageInput.val();
-
-    if (message[0] === '/') {
-      this.chat.handleCommand(message);
-    } else {
-      this.chat.sendMessage(message);
-    }
-
-    this.$messageInput.val('');
   };
 
   ChatUI.prototype.scrollDown = function () {
