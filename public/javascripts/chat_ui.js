@@ -14,29 +14,26 @@
     this.adminMessageTemplate = _.template($('#admin-message-template').html());
     this.whisperSendTemplate = _.template($('#whisper-send-template').html());
     this.whisperReceiveTemplate = _.template($('#whisper-receive-template').html());
-
+    this.$messages.smilify();
     this.bindHandlers();
   };
 
   ChatUI.prototype.bindHandlers = function() {
     this.chat.socket.on('message', function(message) {
       var templatedMessage = this.messageTemplate(message);
-      templatedMessage.smilify();
-      this.$messages.append(templatedMessage);
+      this.$messages.append($(templatedMessage).smilify());
       this.scrollDown();
     }.bind(this));
 
     this.chat.socket.on('whisperSend', function(message) {
       var templatedMessage = this.whisperSendTemplate(message);
-      templatedMessage.smilify();
-      this.$messages.append(templatedMessage);
+      this.$messages.append($(templatedMessage).smilify());
       this.scrollDown();
     }.bind(this));
 
     this.chat.socket.on('whisperReceive', function(message) {
       var templatedMessage = this.whisperReceiveTemplate(message);
-      templatedMessage.smilify();
-      this.$messages.append(templatedMessage);
+      this.$messages.append($(templatedMessage).smilify());
       this.scrollDown();
     }.bind(this));
 
