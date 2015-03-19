@@ -2,9 +2,10 @@
   "name": "my_chat_app",
   "version": "1.0.0",
   "dependencies": {
-    "socket.io": "1.2.x",
+    "lodash": "^3.5.0",
     "mime": "~1.2.7",
-    "node-static": "^0.7.4"
+    "node-static": "^0.7.4",
+    "socket.io": "1.2.x"
   },
   "description": "A node chat app.",
   "main": "index.js",
