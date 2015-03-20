@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -141,7 +145,8 @@ a:active {
           border-radius: 0;
 }
 
-.btn {
+.btn.halp {
+  height: 30px;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
