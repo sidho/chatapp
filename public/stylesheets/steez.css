@@ -103,3 +103,21 @@ input[type="color"]:focus,
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
   outline: 0 none;
 }
+
+a:link {
+    color: #7DE069;
+    transition: color 0.5s ease;
+}
+
+a:visited {
+    color: #4B863F;
+}
+
+a:hover {
+    color: #64B354;
+    transition: color 0.5s ease;
+}
+
+a:active {
+    color: #A4E996;
+}
