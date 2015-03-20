@@ -17,6 +17,10 @@ li {
   padding: 4px;
 }
 
+.container.row-fluid {
+  margin-top: 20px;
+}
+
 #chat {
   margin-top: 10px;
 }
