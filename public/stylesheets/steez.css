@@ -1,4 +1,10 @@
-body{
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
   background-color: #808080;
 }
 
@@ -44,18 +50,6 @@ li {
   /*border: 3px #7DE069 solid;*/
 }
 
-#room-list{
-  height: 80%;
-  overflow: auto;
-  border-radius: 0px;
-  /*border: 3px #7DE069 solid;*/
-  /*background-color: #808080;*/
-}
-
-#sidebar {
-  margin-top: 10px;
-}
-
 .message-group {
   margin-bottom: 10px;
   padding-bottom: 5px;
@@ -66,12 +60,26 @@ li {
   color: #808080;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.message-body.whisper{
+  color: #64B354;
+  font-style: italic;
 }
-body {
-  margin-bottom: 60px;
+
+.sender {
+  font-weight: bold;
+  color: #4B863F;
+}
+
+#room-list{
+  height: 80%;
+  overflow: auto;
+  border-radius: 0px;
+  /*border: 3px #7DE069 solid;*/
+  /*background-color: #808080;*/
+}
+
+#sidebar {
+  margin-top: 10px;
 }
 
 .footer {
@@ -116,7 +124,7 @@ a:visited {
 a:hover {
     color: #64B354;
     transition: color 0.5s ease;
-}
+}g
 
 a:active {
     color: #A4E996;
