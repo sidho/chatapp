@@ -52,8 +52,8 @@
     <script id="room-list-template" type="text/template">
       <% for (var room in rooms) { %>
         <div class="panel panel-default room">
-          <div class="panel-heading"><%= room %></div>
-          <div class="panel-body">
+          <div class="panel-heading room-name"><%= room %></div>
+          <div class="panel-body room-pop">
             <% rooms[room].forEach(function (userName) { %>
               <div class="user-item"><%= userName %></div>
             <% }) %>

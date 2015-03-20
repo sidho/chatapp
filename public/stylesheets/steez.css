@@ -18,7 +18,7 @@ li {
 }
 
 .container.row-fluid {
-  margin-top: 20px;
+  margin-top: 20px;gi
 }
 
 #chat {
@@ -82,13 +82,22 @@ li {
      -moz-border-radius: 0;
           border-radius: 0;
   /*border: 3px #7DE069 solid;*/
-  /*background-color: #808080;*/
+  background-color: #FFFFFF;
 }
 
 .room {
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
+}
+
+.room .room-name {
+  font-weight: bold;
+  color: #4B863F;
+}
+
+.room .room-pop {
+  color: #808080;
 }
 
 #sidebar {
