@@ -26,14 +26,14 @@
 
     <script id="message-template" type="text/template">
       <div class="panel message-group">
-        <div class="sender"><%= _.escape(nickname) %></div>
+        <div class="sender"><b><%= _.escape(nickname) %></b></div>
         <div class="message-body"><%= _.escape(text) %></div>
       </div>
     </script>
 
     <script id="admin-message-template" type="text/template">
-      <div class="panel message-group">
-        <div class="message-body"><%= _.escape(text) %></div>
+      <div class="panel message-group admin">
+        <div class="message-body"><i><%= _.escape(text) %></i></div>
       </div>
     </script>
 
