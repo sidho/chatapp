@@ -10,6 +10,9 @@ html {
 body {
   margin-bottom: 60px;
   background-color: #808080;
+  background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 li {
@@ -18,7 +21,7 @@ li {
 }
 
 .container.row-fluid {
-  margin-top: 20px;gi
+  margin-top: 20px;
 }
 
 #chat {
