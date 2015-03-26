@@ -4,6 +4,7 @@
   "dependencies": {
     "lodash": "^3.5.0",
     "mime": "~1.2.7",
+    "newrelic": "^1.17.3",
     "node-static": "^0.7.4",
     "socket.io": "1.2.x"
   },
