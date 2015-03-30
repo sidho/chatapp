@@ -3,6 +3,7 @@
     <title>Sema4 Chat</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/animate.css">
     <script src='/socket.io/socket.io.js' type='text/javascript'></script>
     <script src='/javascripts/chat.js' type='text/javascript'></script>
     <script src='/javascripts/chat_ui.js' type='text/javascript'></script>
@@ -25,26 +26,26 @@
     </script>
 
     <script id="message-template" type="text/template">
-      <div class="panel message-group">
+      <div class="panel message-group animated fadeInDown">
         <div class="sender"><b><%= _.escape(nickname) %></b></div>
         <div class="message-body"><%= _.escape(text) %></div>
       </div>
     </script>
 
     <script id="admin-message-template" type="text/template">
-      <div class="panel message-group admin">
+      <div class="panel message-group admin animated fadeInDown">
         <div class="message-body"><i><%= _.escape(text) %></i></div>
       </div>
     </script>
 
     <script id="whisper-send-template" type="text/template">
-      <div class="panel message-group">
+      <div class="panel message-group animated fadeIn">
         <div class="message-body whisper">You whisper to <%= _.escape(receiver) %> : <%= _.escape(body) %></div>
       </div>
     </script>
 
     <script id="whisper-receive-template" type="text/template">
-      <div class="panel message-group">
+      <div class="panel message-group animated fadeIn">
         <div class="message-body whisper"><%= _.escape(sender) %> whispers : <%= _.escape(body) %></div>
       </div>
     </script>
@@ -64,7 +65,7 @@
 
   </head>
   <body>
-    <div class="container row-fluid">
+    <div class="container row-fluid animated fadeInDown">
       <div id="chat" class="col-xs-12 col-md-8">
         <div class="well messages-container">
           <ul id="messages"></ul>
