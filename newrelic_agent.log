@@ -10,3 +10,6 @@
 {"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":7462,"time":"2015-03-31T00:12:40.346Z","msg":"Starting New Relic for Node.js connection process."}
 {"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":7462,"time":"2015-03-31T00:12:42.064Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/939437/applications/6003326","component":"new_relic_response"}
 {"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":7462,"time":"2015-03-31T00:12:42.065Z","msg":"Connected to collector-107.newrelic.com:443 with agent run ID 25784099562463234.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":6662,"time":"2015-04-01T01:26:53.452Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":6662,"time":"2015-04-01T01:26:54.564Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/939437/applications/6003326","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"Stanley-Kubrick","pid":6662,"time":"2015-04-01T01:26:54.572Z","msg":"Connected to collector-107.newrelic.com:443 with agent run ID 25784099566288883.","component":"collector_api"}
