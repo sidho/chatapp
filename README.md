@@ -92,5 +92,5 @@ Thanks for reading. If you have any comments, criticisms or suggestions, please
 let me know.
 
 <p align="center">
-  <a href="http://sidho.me"><img src="./app/assets/images/shgreenicon.jpg"/></a>
+  <a href="http://sidho.me"><img src="./public/images/shgreenicon.jpg"/></a>
 </p>
