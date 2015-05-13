@@ -43,6 +43,10 @@
       $(function () {
         $('[data-toggle="popover"]').popover()
       })
+
+      $(document).ready(function(){
+          $("#helpModal").modal('show');
+      });
     </script>
 
     <script id="message-template" type="text/template">
@@ -90,36 +94,36 @@
         <div class="well messages-container">
           <ul id="messages"></ul>
         </div>
+        <div class="col-xs-12">
+          <form class="chat-form">
+            <div class="input-group">
+              <span class="input-group-btn">
+              <button type="button"
+                      class="btn btn-default halp"
+                      data-container="body"
+                      data-toggle="popover"
+                      data-placement="top"
+                      title="Help"
+                      data-content="Type '/name' and a name to change the name.
+                                    Use '/join' and a room to change room.
+                                    Send a private message by using '/w', a user
+                                    name, and some text to whisper to another user.">
+                <span class="glyphicon glyphicon-question-sign"></span>
+              </button>
+              </span>
+              <input type="text"
+                     class="form-control input-sm"
+                     id="message-input"
+                     autocomplete="off"
+                     placeholder="Type your message here and press enter to send..."
+                     autofocus >
+            </div>
+          </form>
+        </div>
       </div>
       <div id="sidebar" class="col-xs-12 col-md-4">
         <div id="room-list" class="well col-xs-12">
         </div>
-      </div>
-      <div class="col-xs-12">
-        <form class="chat-form">
-          <div class="input-group">
-            <span class="input-group-btn">
-            <button type="button"
-                    class="btn btn-default halp"
-                    data-container="body"
-                    data-toggle="popover"
-                    data-placement="top"
-                    title="Help"
-                    data-content="Type '/name' and a name to change the name.
-                                  Use '/join' and a room to change room.
-                                  Send a private message by using '/w', a user
-                                  name, and some text to whisper to another user.">
-              <span class="glyphicon glyphicon-question-sign"></span>
-            </button>
-            </span>
-            <input type="text"
-                   class="form-control input-sm"
-                   id="message-input"
-                   autocomplete="off"
-                   placeholder="Type your message here and press enter to send..."
-                   autofocus >
-          </div>
-        </form>
       </div>
     </div>
     <footer class="footer">
@@ -130,5 +134,38 @@
         </p>
       </div>
     </footer>
+
+
+    <div id="helpModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Welcome to Sema4 Chat!</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>
+                        Use the text input box to type in messages and send commands.
+                    </h5>
+                    <div class="well modal-instructions">
+                        <p>
+                            Type '/name' and a name to change the name.
+                        </p>
+                        <p class="text-warning"><small>Example: "/name myname13".</small></p>
+                        <p>
+                            Type '/join' and a room to change your room.
+                        </p>
+                        <p class="text-warning"><small>Example: "/join JavascriptFans".</small></p>
+                        <p>
+                            Send a private message by using '/w', a user name, and some text to whisper to another user.
+                        </p>
+                        <p class="text-warning"><small>Example: "/w myname13 Hey, what's up?".</small></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-success" data-dismiss="modal">Cool, got it.</button>
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>

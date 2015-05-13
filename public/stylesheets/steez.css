@@ -62,6 +62,7 @@ li {
 .name{
   border-bottom: 1px black dotted;
 }
+
 #messages {
   padding: 0;
   width: 100%;
@@ -90,6 +91,10 @@ li {
 .message-body.whisper{
   color: #64B354;
   font-style: italic;
+}
+
+.modal-instructions {
+  margin: 20px;
 }
 
 .sender {
